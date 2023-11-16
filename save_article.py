@@ -1,3 +1,5 @@
+# Script that saves a website from user input to an HTML file.
+
 import requests
 from bs4 import BeautifulSoup
 
@@ -18,6 +20,15 @@ def save_html_to_file(html_content, file_path):
     except Exception as e:
         print(f"Error saving to file: {e}")
 
+# Function to acquire the article content to be fed into the language filter
+def extract_content(html_content):
+    soup = BeautifulSoup(html_content, 'html.parser')
+    
+    # Extract the main content with a space as separator
+    main_content = soup.get_text(separator=' ', strip=True)
+
+    return main_content
+
 # Example usage
 url = input("Enter the URL of the article: ")
 html_content = get_html_content(url)
@@ -27,15 +38,6 @@ if html_content:
     save_html_to_file(html_content, file_path)
 else:
     print("Failed to retrieve HTML content from the URL.")
-
-
-def extract_content(html_content):
-    soup = BeautifulSoup(html_content, 'html.parser')
-    
-    # Extract the main content with a space as separator
-    main_content = soup.get_text(separator=' ', strip=True)
-
-    return main_content
 
 if html_content:
     article_content = extract_content(html_content)
