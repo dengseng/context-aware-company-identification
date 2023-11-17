@@ -1,10 +1,9 @@
 # context-aware-company-identification
 Script that uses natural language processing to identify and list relevant companies from articles. Analyzing the context, including topic and content, it intelligently filters out central companies. Designed for enhanced company identification by understanding the broader article context.
 
-# extract_article.py
-Script that extracts topic and related companies found in the article
-## extract_information()
-Function to extract related companies in the article using the hyperlink reference attributes
+# save_article.py
+Prompts user input for a website url
 
-# content_aware_prompt.txt
-Example prompt function for filtering relevant companies using natural language processing (OpenAI/Langchain)
+# openai_article_analysis.py
+Compiled program that directly generates a prompt for GPT3 using the native natural language processing model for analysing the article content and returns relevant companies + description
+
